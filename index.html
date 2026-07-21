@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index.html</title>
     <style>
-        /* Centers the login box on the browser page */
+        /* Centers the login/signup box on the browser page */
         body {
             font-family: Arial, sans-serif;
-            background-color: #black#
+            background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,14 +42,13 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Ensures width calculations match styling */
+            box-sizing: border-box;
         }
         /* Submit button styling */
         .btn-submit {
             width: 100%;
             padding: 10px;
-            background-color: #pink;
-          <td><img scr=""</td>
+            background-color: #ff69b4;
             border: none;
             border-radius: 4px;
             color: white;
@@ -57,34 +56,90 @@
             cursor: pointer;
         }
         .btn-submit:hover {
-            background-color: #0056b3;
+            background-color: #ff1493;
+        }
+        /* Toggle link styling */
+        .switch-form {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .switch-form a {
+            color: #ff69b4;
+            text-decoration: none;
+        }
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+        /* Form visibility utility */
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
 
 <div class="login-container">
-    <h2>Account Login</h2>
-    <!-- The form sends data using POST for privacy protection -->
-    <form action="places.html" method="lala.html">
-        
-        <!-- Username or Email Field -->
-        <div class="form-group">
-            <label for="username">Username or Email</label>
-            <input type="text" id="username" name="username" required placeholder="Enter username">
-        </div>
-        
-        <!-- Password Field -->
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required placeholder="Enter password">
-        </div>
-        
-        <!-- Submit Button -->
-        <button type="Kalanggaman Island Resort Reservation Form.html" class="btn-submit">Sign In</button>
-        
-    </form>
+    
+    <!-- Sign Up Form (Default View) -->
+    <div id="signup-section">
+        <h2>Create Account</h2>
+        <form action="places.html" method="POST">
+            
+            <div class="form-group">
+                <label for="signup-username">Username or Email</label>
+                <input type="text" id="signup-username" name="username" required placeholder="Choose a username">
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" required placeholder="Create a password">
+            </div>
+            
+            <button type="submit" class="btn-submit">Sign Up</button>
+            
+            <div class="switch-form">
+                Already have an account? <a href="#" onclick="toggleForms(event)">Sign In</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Sign In Form (Hidden by Default) -->
+    <div id="signin-section" class="hidden">
+        <h2>Account Login</h2>
+        <form action="places.html" method="POST">
+            
+            <div class="form-group">
+                <label for="signin-username">Username or Email</label>
+                <input type="text" id="signin-username" name="username" required placeholder="Enter username">
+            </div>
+            
+            <div class="form-group">
+                <label for="signin-password">Password</label>
+                <input type="password" id="signin-password" name="password" required placeholder="Enter password">
+            </div>
+            
+            <button type="submit" class="btn-submit">Sign In</button>
+            
+            <div class="switch-form">
+                Don't have an account? <a href="#" onclick="toggleForms(event)">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
 </div>
+
+<script>
+    function toggleForms(event) {
+        event.preventDefault();
+        const signupSection = document.getElementById('signup-section');
+        const signinSection = document.getElementById('signin-section');
+        
+        signupSection.classList.toggle('hidden');
+        signinSection.classList.toggle('hidden');
+    }
+</script>
 
 </body>
 </html>
