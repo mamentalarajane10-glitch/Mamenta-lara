@@ -250,28 +250,14 @@ footer{
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=75" alt="Cebu Resort">
 <div class="content">
 <h3>Cebu Resort</h3>
-<p>Beautiful islands and whale shark adventures.</p>
-<button class="reserve-btn" data-resort="Cebu Resort">Reserve Now</button>
- </div>
- </div>
- </div>
- </div>
- <!-- MINDANAO -->
- <div class="section">
- <h2>MINDANAO</h2>
- <div class="cards">
- <div class="card">
- <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=75" alt="Siargao Resort">
- <div class="content">
- <h3>Siargao Resort</h3>
- <p>Surfing capital of the Philippines.</p>
- <button class="reserve-btn" data-resort="Siargao Resort">Reserve Now</button>
+<p>Beautiful islands and whale shark adventures </p>
+<button class="reserve-btn" data-resort="Siargao Resort">Reserve Now</button>
  </div>
  </div>
  <div class="card">
  <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=75" alt="Camiguin Resort">
  <div class="content">
-<h3>Camiguin Resort</h3>
+     <h3>Camiguin Resort</h3>
  <p>Island paradise with natural hot springs.</p>
  <button class="reserve-btn" data-resort="Camiguin Resort">Reserve Now</button>
  </div>
@@ -285,7 +271,7 @@ footer{
  <form id="reserveForm">
  <input type="text" id="fullName" placeholder="Full Name" required>
  <input type="email" id="email" placeholder="Email Address" required>
- <input type="tel" id="phone" placeholder="Phone Number" required>
+     <input type="tel" id="phone" placeholder="Phone Number" required>
  <input type="date" id="checkin" required>
  <input type="date" id="checkout" required>
  <select id="guests" required>
@@ -300,7 +286,7 @@ footer{
  <button type="button" class="close" id="closeBtn">Close</button>
  </form>
  </div>
- </div>
+    </div>
  <footer>© 2026 Philippine Tourist Resorts</footer>
  <script>
  document.addEventListener('DOMContentLoaded', function(){
@@ -311,7 +297,7 @@ footer{
      const searchInput = document.getElementById('searchInput');
      const allCards = document.querySelectorAll('.card');
      // Reservation modal
-                           reserveBtns.forEach(btn => {
+reserveBtns.forEach(btn => {
          btn.addEventListener('click', function(){
              resortName.textContent = this.getAttribute('data-resort');
              modal.style.display = 'flex';
@@ -341,3 +327,4 @@ footer{
  </script>
  </body>
  </html>
+ 
