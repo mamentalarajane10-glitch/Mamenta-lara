@@ -1,146 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index.html</title>
-    <style>
-        /* Centers the login/signup box on the browser page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        /* Design container for the form card */
-        .login-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 320px;
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333333;
-        }
-        /* Form spacing and layout alignment */
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666666;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        /* Submit button styling */
-        .btn-submit {
-            width: 100%;
-            padding: 10px;
-            background-color: #ff69b4;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .btn-submit:hover {
-            background-color: #ff1493;
-        }
-        /* Toggle link styling */
-        .switch-form {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #666666;
-        }
-        .switch-form a {
-            color: #ff69b4;
-            text-decoration: none;
-        }
-        .switch-form a:hover {
-            text-decoration: underline;
-        }
-        /* Form visibility utility */
-        .hidden {
-            display: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippine Tourist Resort Reservation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef6fb;
+}
+
+header{
+    background:linear-gradient(135deg,#0099cc,#00c6ff);
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.search{
+    width:90%;
+    max-width:600px;
+    margin:30px auto;
+}
+
+.search input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.section{
+    width:90%;
+    margin:40px auto;
+}
+
+.section h2{
+    color:#0088aa;
+    margin-bottom:20px;
+    border-left:6px solid #00bfff;
+    padding-left:10px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.content{
+    padding:18px;
+}
+
+.content h3{
+    margin-bottom:10px;
+}
+
+.content p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#00a2ff;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#007acc;
+}
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.form-box{
+    width:90%;
+    max-width:500px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+}
+
+.form-box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.form-box input,
+.form-box select{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.close{
+    background:#ff4444;
+    margin-top:10px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+    margin-top:50px;
+}
+</style>
+
 </head>
+
 <body>
 
-<div class="login-container">
-    
-    <!-- Sign Up Form (Default View) -->
-    <div id="signup-section">
-        <h2>Create Account</h2>
-        <form action="places.html" method="POST">
-            
-            <div class="form-group">
-                <label for="signup-username">Username or Email</label>
-                <input type="text" id="signup-username" name="username" required placeholder="Choose a username">
-            </div>
-            
-            <div class="form-group">
-                <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" name="password" required placeholder="Create a password">
-            </div>
-            
-            <button type="submit" class="btn-submit">Sign Up</button>
-            
-            <div class="switch-form">
-                Already have an account? <a href="#" onclick="toggleForms(event)">Sign In</a>
-            </div>
-        </form>
-    </div>
+<header>
 
-    <!-- Sign In Form (Hidden by Default) -->
-    <div id="signin-section" class="hidden">
-        <h2>Account Login</h2>
-        <form action="places.html" method="POST">
-            
-            <div class="form-group">
-                <label for="signin-username">Username or Email</label>
-                <input type="text" id="signin-username" name="username" required placeholder="Enter username">
-            </div>
-            
-            <div class="form-group">
-                <label for="signin-password">Password</label>
-                <input type="password" id="signin-password" name="password" required placeholder="Enter password">
-            </div>
-            
-            <button type="submit" class="btn-submit">Sign In</button>
-            
-            <div class="switch-form">
-                Don't have an account? <a href="#" onclick="toggleForms(event)">Sign Up</a>
-            </div>
-        </form>
-    </div>
+<h1>🌴 Philippine Tourist Resorts</h1>
+
+<p>Choose your dream destination and reserve your stay.</p>
+
+</header>
+
+<div class="search">
+
+<input
+type="text"
+id="search"
+placeholder="Search destination..."
+onkeyup="searchDestination()">
 
 </div>
 
-<script>
-    function toggleForms(event) {
-        event.preventDefault();
-        const signupSection = document.getElementById('signup-section');
-        const signinSection = document.getElementById('signin-section');
-        
-        signupSection.classList.toggle('hidden');
-        signinSection.classList.toggle('hidden');
-    }
-</script>
+<!-- LUZON -->
 
-</body>
-</html>
+<div class="section">
 
+<h2>LUZON</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+
+<div class="content">
+
+<h3>Palawan Resort</h3>
+
+<p>Crystal clear waters and white sand beaches.</p>
+
+<button onclick="reserve('Palawan Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
+
+<div class="content">
+
+<h3>Banaue Resort</h3>
+
+<p>Relax beside the famous rice terraces.</p>
+
+<button onclick="reserve('Banaue Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c">
+
+<div class="content">
+
+<h3>Tagaytay Resort</h3>
+
+<p>Cool weather with scenic mountain views.</p>
+
+<button onclick="reserve('Tagaytay Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VISAYAS -->
+
+<div class="section">
+
+<h2>VISAYAS</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+<div class="content">
+
+<h3>Boracay Resort</h3>
+
+<p>World-famous white beach and nightlife.</p>
+
+<button onclick="reserve('Boracay Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+
+<div class="content">
+
+<h3>Bohol Resort</h3>
+
+<p>Enjoy the Chocolate Hills and beaches.</p>
+
+<button onclick="reserve('Bohol Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+
+<div class="content">
+
+<h3>Cebu Resort</h3>
+
+<p>Beautiful islands and whale shark adventure.</p>
+
+<button onclick="reserve('Cebu Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MINDANAO -->
+
+<div class="section">
+
+<h2>MINDANAO</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+
+<div class="content">
+
+<h3>Siargao Resort</h3>
+
+<p>Surfing capital of the Philippines.</p>
+
+<button onclick="reserve('Siargao Resort')">
+
+Reserve Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
+
+<div class="content">
+
+<h3>Camiguin Resort</h3>
+
+<p>Island paradise with hot springs.</p>
+
+<button onclick="res
