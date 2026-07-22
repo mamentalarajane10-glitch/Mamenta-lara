@@ -82,6 +82,10 @@ header p{
     width:100%;
     height:180px;
     object-fit:cover;
+    /* Fix slow loading */
+    loading:lazy;
+    width:600;
+    height:350;
 }
 
 .content{
@@ -123,6 +127,7 @@ button:hover{
     display:none;
     justify-content:center;
     align-items:center;
+    z-index:999;
 }
 
 .form-box{
@@ -165,203 +170,96 @@ footer{
 <body>
 
 <header>
-
 <h1>🌴 Philippine Tourist Resorts</h1>
-
 <p>Choose your dream destination and reserve your stay.</p>
-
 </header>
 
 <div class="search">
-
 <input
 type="text"
 id="search"
 placeholder="Search destination..."
 onkeyup="searchDestination()">
-
 </div>
 
 <!-- LUZON -->
-
 <div class="section">
-
 <h2>LUZON</h2>
-
 <div class="cards">
-
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Palawan Resort">
 <div class="content">
-
 <h3>Palawan Resort</h3>
-
 <p>Crystal clear waters and white sand beaches.</p>
-
-<button onclick="reserve('Palawan Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Palawan Resort')">Reserve Now</button>
 </div>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
-
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Banaue Resort">
 <div class="content">
-
 <h3>Banaue Resort</h3>
-
 <p>Relax beside the famous rice terraces.</p>
-
-<button onclick="reserve('Banaue Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Banaue Resort')">Reserve Now</button>
 </div>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c">
-
+<img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c" alt="Tagaytay Resort">
 <div class="content">
-
 <h3>Tagaytay Resort</h3>
-
 <p>Cool weather with scenic mountain views.</p>
-
-<button onclick="reserve('Tagaytay Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Tagaytay Resort')">Reserve Now</button>
 </div>
-
 </div>
-
 </div>
-
 </div>
 
 <!-- VISAYAS -->
-
 <div class="section">
-
 <h2>VISAYAS</h2>
-
 <div class="cards">
-
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Boracay Resort">
 <div class="content">
-
 <h3>Boracay Resort</h3>
-
 <p>World-famous white beach and nightlife.</p>
-
-<button onclick="reserve('Boracay Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Boracay Resort')">Reserve Now</button>
 </div>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Bohol Resort">
 <div class="content">
-
 <h3>Bohol Resort</h3>
-
 <p>Enjoy the Chocolate Hills and beaches.</p>
-
-<button onclick="reserve('Bohol Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Bohol Resort')">Reserve Now</button>
 </div>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Cebu Resort">
 <div class="content">
-
 <h3>Cebu Resort</h3>
-
 <p>Beautiful islands and whale shark adventure.</p>
-
-<button onclick="reserve('Cebu Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Cebu Resort')">Reserve Now</button>
 </div>
-
 </div>
-
 </div>
-
 </div>
 
 <!-- MINDANAO -->
-
 <div class="section">
-
 <h2>MINDANAO</h2>
-
 <div class="cards">
-
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Siargao Resort">
 <div class="content">
-
 <h3>Siargao Resort</h3>
-
 <p>Surfing capital of the Philippines.</p>
-
-<button onclick="reserve('Siargao Resort')">
-
-Reserve Now
-
-</button>
-
+<button onclick="reserve('Siargao Resort')">Reserve Now</button>
 </div>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
-
-<div class="content">
-
-<h3>Camiguin Resort</h3>
-
-<p>Island paradise with hot springs.</p>
-
-<button onclick="res
+<img src="https://images.unsplash.com/photo-15015
