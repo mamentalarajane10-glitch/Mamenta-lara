@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Philippine Tourist Resort Reservation</title>
+<title>Philippine Tourist Resorts</title>
 
 <style>
 *{
@@ -13,110 +13,118 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+/* Optimized base styles */
 body{
     background:#eef6fb;
+    min-height:100vh;
 }
 
 header{
     background:linear-gradient(135deg,#0099cc,#00c6ff);
     color:white;
     text-align:center;
-    padding:40px 20px;
+    padding:30px 15px;
 }
 
 header h1{
-    font-size:40px;
+    font-size:28px;
 }
 
 header p{
-    margin-top:10px;
-    font-size:18px;
+    margin-top:8px;
+    font-size:15px;
 }
 
 .search{
-    width:90%;
-    max-width:600px;
-    margin:30px auto;
+    width:92%;
+    max-width:550px;
+    margin:20px auto;
 }
 
 .search input{
     width:100%;
-    padding:14px;
+    padding:12px 15px;
     border:none;
-    border-radius:30px;
-    font-size:16px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    border-radius:25px;
+    font-size:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
 .section{
-    width:90%;
-    margin:40px auto;
+    width:92%;
+    margin:30px auto;
 }
 
 .section h2{
     color:#0088aa;
-    margin-bottom:20px;
-    border-left:6px solid #00bfff;
-    padding-left:10px;
+    margin-bottom:15px;
+    border-left:5px solid #00bfff;
+    padding-left:8px;
+    font-size:20px;
 }
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:15px;
 }
 
 .card{
     background:white;
-    border-radius:12px;
+    border-radius:10px;
     overflow:hidden;
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
-    transition:.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    /* Reduced animation for smoother mobile */
+    transition:transform .2s ease;
+    will-change:transform;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-4px);
 }
 
+/* CRITICAL: Optimized images for speed */
 .card img{
     width:100%;
-    height:180px;
+    height:160px;
     object-fit:cover;
-    /* Fix slow loading */
-    loading:lazy;
-    width:600;
-    height:350;
+    loading:lazy; /* Load only when visible */
+    decoding:async; /* Load without blocking page */
 }
 
 .content{
-    padding:18px;
+    padding:15px;
 }
 
 .content h3{
-    margin-bottom:10px;
+    margin-bottom:8px;
+    font-size:17px;
 }
 
 .content p{
     color:#666;
-    font-size:14px;
-    margin-bottom:15px;
+    font-size:13px;
+    margin-bottom:12px;
+    line-height:1.4;
 }
 
 button{
     width:100%;
-    padding:12px;
+    padding:10px;
     border:none;
     background:#00a2ff;
     color:white;
-    border-radius:6px;
+    border-radius:5px;
     cursor:pointer;
-    font-size:16px;
+    font-size:15px;
+    transition:background .2s;
 }
 
 button:hover{
     background:#007acc;
 }
 
+/* Fast & responsive modal */
 .modal{
     position:fixed;
     top:0;
@@ -127,59 +135,60 @@ button:hover{
     display:none;
     justify-content:center;
     align-items:center;
-    z-index:999;
+    z-index:9999;
+    padding:15px;
 }
 
 .form-box{
-    width:90%;
-    max-width:500px;
+    width:100%;
+    max-width:450px;
     background:white;
-    padding:25px;
-    border-radius:10px;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
 .form-box h2{
     text-align:center;
-    margin-bottom:20px;
+    margin-bottom:15px;
+    color:#0088aa;
+    font-size:20px;
 }
 
 .form-box input,
 .form-box select{
     width:100%;
-    padding:12px;
-    margin-bottom:12px;
-    border:1px solid #ccc;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #ddd;
     border-radius:5px;
+    font-size:14px;
 }
 
 .close{
     background:#ff4444;
-    margin-top:10px;
+    margin-top:8px;
 }
 
 footer{
     text-align:center;
-    padding:20px;
+    padding:15px;
     color:#666;
-    margin-top:50px;
+    margin-top:30px;
+    font-size:13px;
 }
 </style>
 
 </head>
-
 <body>
 
 <header>
 <h1>🌴 Philippine Tourist Resorts</h1>
-<p>Choose your dream destination and reserve your stay.</p>
+<p>Find and book your perfect getaway</p>
 </header>
 
 <div class="search">
-<input
-type="text"
-id="search"
-placeholder="Search destination..."
-onkeyup="searchDestination()">
+<input type="text" id="searchInput" placeholder="Search resort...">
 </div>
 
 <!-- LUZON -->
@@ -187,29 +196,29 @@ onkeyup="searchDestination()">
 <h2>LUZON</h2>
 <div class="cards">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Palawan Resort">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75" alt="Palawan Resort">
 <div class="content">
 <h3>Palawan Resort</h3>
 <p>Crystal clear waters and white sand beaches.</p>
-<button onclick="reserve('Palawan Resort')">Reserve Now</button>
+<button class="reserve-btn" data-resort="Palawan Resort">Reserve Now</button>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Banaue Resort">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=75" alt="Banaue Resort">
 <div class="content">
 <h3>Banaue Resort</h3>
 <p>Relax beside the famous rice terraces.</p>
-<button onclick="reserve('Banaue Resort')">Reserve Now</button>
+<button class="reserve-btn" data-resort="Banaue Resort">Reserve Now</button>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c" alt="Tagaytay Resort">
+<img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=600&q=75" alt="Tagaytay Resort">
 <div class="content">
 <h3>Tagaytay Resort</h3>
 <p>Cool weather with scenic mountain views.</p>
-<button onclick="reserve('Tagaytay Resort')">Reserve Now</button>
+<button class="reserve-btn" data-resort="Tagaytay Resort">Reserve Now</button>
 </div>
 </div>
 </div>
@@ -220,46 +229,115 @@ onkeyup="searchDestination()">
 <h2>VISAYAS</h2>
 <div class="cards">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Boracay Resort">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=75" alt="Boracay Resort">
 <div class="content">
 <h3>Boracay Resort</h3>
 <p>World-famous white beach and nightlife.</p>
-<button onclick="reserve('Boracay Resort')">Reserve Now</button>
+<button class="reserve-btn" data-resort="Boracay Resort">Reserve Now</button>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Bohol Resort">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=75" alt="Bohol Resort">
 <div class="content">
 <h3>Bohol Resort</h3>
 <p>Enjoy the Chocolate Hills and beaches.</p>
-<button onclick="reserve('Bohol Resort')">Reserve Now</button>
+<button class="reserve-btn" data-resort="Bohol Resort">Reserve Now</button>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Cebu Resort">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=75" alt="Cebu Resort">
 <div class="content">
 <h3>Cebu Resort</h3>
-<p>Beautiful islands and whale shark adventure.</p>
-<button onclick="reserve('Cebu Resort')">Reserve Now</button>
-</div>
-</div>
-</div>
-</div>
-
-<!-- MINDANAO -->
-<div class="section">
-<h2>MINDANAO</h2>
-<div class="cards">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Siargao Resort">
-<div class="content">
-<h3>Siargao Resort</h3>
-<p>Surfing capital of the Philippines.</p>
-<button onclick="reserve('Siargao Resort')">Reserve Now</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-15015
+<p>Beautiful islands and whale shark adventures.</p>
+<button class="reserve-btn" data-resort="Cebu Resort">Reserve Now</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- MINDANAO -->
+ <div class="section">
+ <h2>MINDANAO</h2>
+ <div class="cards">
+ <div class="card">
+ <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=75" alt="Siargao Resort">
+ <div class="content">
+ <h3>Siargao Resort</h3>
+ <p>Surfing capital of the Philippines.</p>
+ <button class="reserve-btn" data-resort="Siargao Resort">Reserve Now</button>
+ </div>
+ </div>
+ <div class="card">
+ <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=75" alt="Camiguin Resort">
+ <div class="content">
+<h3>Camiguin Resort</h3>
+ <p>Island paradise with natural hot springs.</p>
+ <button class="reserve-btn" data-resort="Camiguin Resort">Reserve Now</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- Reservation Modal -->
+ <div id="reserveModal" class="modal">
+ <div class="form-box">
+ <h2>Reserve at <span id="resortName"></span></h2>
+ <form id="reserveForm">
+ <input type="text" id="fullName" placeholder="Full Name" required>
+ <input type="email" id="email" placeholder="Email Address" required>
+ <input type="tel" id="phone" placeholder="Phone Number" required>
+ <input type="date" id="checkin" required>
+ <input type="date" id="checkout" required>
+ <select id="guests" required>
+ <option value="">Number of Guests</option>
+ <option value="1">1 Guest</option>
+ <option value="2">2 Guests</option>
+ <option value="3">3 Guests</option>
+ <option value="4">4 Guests</option>
+ <option value="5">5+ Guests</option>
+ </select>
+ <button type="submit">Submit Reservation</button>
+ <button type="button" class="close" id="closeBtn">Close</button>
+ </form>
+ </div>
+ </div>
+ <footer>© 2026 Philippine Tourist Resorts</footer>
+ <script>
+ document.addEventListener('DOMContentLoaded', function(){
+     const modal = document.getElementById('reserveModal');
+     const resortName = document.getElementById('resortName');
+     const closeBtn = document.getElementById('closeBtn');
+     const reserveBtns = document.querySelectorAll('.reserve-btn');
+     const searchInput = document.getElementById('searchInput');
+     const allCards = document.querySelectorAll('.card');
+     // Reservation modal
+                           reserveBtns.forEach(btn => {
+         btn.addEventListener('click', function(){
+             resortName.textContent = this.getAttribute('data-resort');
+             modal.style.display = 'flex';
+         });
+     });
+     function closeModal(){
+         modal.style.display = 'none';
+     }
+     closeBtn.addEventListener('click', closeModal);
+     window.addEventListener('click', e => e.target === modal && closeModal());
+     // Fast search (optimized for mobile)
+     searchInput.addEventListener('input', function(){
+         const query = this.value.toLowerCase().trim();
+         allCards.forEach(card => {
+             const title = card.querySelector('h3').textContent.toLowerCase();
+             card.style.display = title.includes(query) ? 'block' : 'none';
+             });
+     });
+     // Form submit
+     document.getElementById('reserveForm').addEventListener('submit', e => {
+         e.preventDefault();
+         alert('✅ Reservation submitted! We will contact you soon.');
+         closeModal();
+         e.target.reset();
+     });
+ });
+ </script>
+ </body>
+ </html>
